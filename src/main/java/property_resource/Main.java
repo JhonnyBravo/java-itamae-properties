@@ -2,8 +2,9 @@ package property_resource;
 
 import java.io.File;
 import java.util.Map;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import content_resource.ContentResource;
 import gnu.getopt.Getopt;
@@ -34,10 +35,7 @@ public class Main {
         longopts[5] = new LongOpt("delete", LongOpt.NO_ARGUMENT, null, 'd');
 
         final Getopt options = new Getopt("Main", args, "p:k:v:sgd", longopts);
-
-        final Logger logger = Logger.getLogger(Main.class.getName());
-        logger.addHandler(new ConsoleHandler());
-        logger.setUseParentHandlers(false);
+        final Logger logger = LoggerFactory.getLogger(Main.class);
 
         String path = null;
         String key = null;
@@ -73,17 +71,17 @@ public class Main {
 
         if (setFlag == 1 || deleteFlag == 1 || getFlag == 1) {
             if (path == null) {
-                logger.warning("path を指定してください。");
+                logger.warn("path を指定してください。");
                 System.exit(1);
             }
 
             if (key == null) {
-                logger.warning("key を指定してください。");
+                logger.warn("key を指定してください。");
                 System.exit(1);
             }
 
             if (setFlag == 1 && value == null) {
-                logger.warning("value を指定してください。");
+                logger.warn("value を指定してください。");
                 System.exit(1);
             }
         }
@@ -128,7 +126,7 @@ public class Main {
                 System.exit(0);
             }
         } catch (final Exception e) {
-            logger.warning(e.toString());
+            logger.warn("エラーが発生しました。", e);
             System.exit(1);
         }
     }
