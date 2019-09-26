@@ -47,7 +47,7 @@ public class PropertyResourceTest {
     }
 
     public static class ファイルが存在するが空である場合 {
-        private final ContentResource<Map<String, String>> resource = new PropertyResource("test.properties");
+        private final PropertyResource resource = new PropertyResource("test.properties");
         private final File file = new File("test.properties");
 
         @Before
@@ -109,7 +109,7 @@ public class PropertyResourceTest {
     }
 
     public static class ファイルが存在して空ではない場合 {
-        private final ContentResource<Map<String, String>> resource = new PropertyResource("test.properties");
+        private final PropertyResource resource = new PropertyResource("test.properties");
         private final File file = new File("test.properties");
 
         @Before
@@ -189,7 +189,7 @@ public class PropertyResourceTest {
 
     public static class 不正な文字エンコーディングを指定した場合 {
         private final File file = new File("encoding_test.properties");
-        ContentResource<Map<String, String>> resource = new PropertyResource("encoding_test.properties");
+        PropertyResource resource = new PropertyResource("encoding_test.properties");
 
         @Before
         public void setUp() throws Exception {
