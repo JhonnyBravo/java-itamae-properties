@@ -8,11 +8,12 @@ import java.util.Map;
 import java.util.Properties;
 
 import content_resource.ContentResource;
+import content_resource.IOStreamResource;
 
 /**
  * プロパティファイルの読み書きを管理する。
  */
-public class PropertyResource extends ContentResource<Map<String, String>> {
+public class PropertyResource extends IOStreamResource implements ContentResource<Map<String, String>> {
     private final File file;
 
     /**
