@@ -1,4 +1,4 @@
-package property_resource;
+package property_resource.domain.repository;
 
 import java.io.File;
 import java.io.Reader;
