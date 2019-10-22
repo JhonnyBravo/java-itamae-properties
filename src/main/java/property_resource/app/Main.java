@@ -1,4 +1,4 @@
-package property_resource;
+package property_resource.app;
 
 import java.io.File;
 import java.util.Map;
@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import content_resource.ContentResource;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
+import property_resource.domain.repository.PropertyResource;
 
 /**
  * プロパティファイルの読み書きを管理する。
