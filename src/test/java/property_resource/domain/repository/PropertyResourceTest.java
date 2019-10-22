@@ -1,4 +1,4 @@
-package property_resource;
+package property_resource.domain.repository;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -16,6 +16,7 @@ import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
 import content_resource.ContentResource;
+import property_resource.domain.repository.PropertyResource;
 
 @RunWith(Enclosed.class)
 public class PropertyResourceTest {
