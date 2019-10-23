@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.JhonnyBravo:content-resource:master-SNAPSHOT'
+    compile 'com.github.JhonnyBravo:java-itamae-contents:master-SNAPSHOT'
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
