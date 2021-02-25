@@ -1,7 +1,8 @@
 package java_itamae_properties.domain.repository.properties;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.File;
 import java.io.Reader;
@@ -63,7 +64,7 @@ public class PropertiesRepositoryTest {
 
         @Test
         public void setProperties実行時にファイルへプロパティの書込みができること() throws Exception {
-            final Map<String, String> newProps = new HashMap<String, String>();
+            final Map<String, String> newProps = new HashMap<>();
             newProps.put("property1", "1 つ目のプロパティ");
             newProps.put("property2", "2 つ目のプロパティ");
 
@@ -85,7 +86,7 @@ public class PropertiesRepositoryTest {
 
         @Test
         public void 文字エンコーディングを指定してプロパティの読み書きができること() throws Exception {
-            final Map<String, String> newProps = new HashMap<String, String>();
+            final Map<String, String> newProps = new HashMap<>();
             newProps.put("property1", "1 つ目のプロパティ");
             newProps.put("property2", "2 つ目のプロパティ");
 
@@ -138,7 +139,7 @@ public class PropertiesRepositoryTest {
             final ContentsAttribute attr = new ContentsAttribute();
             attr.setPath("test.properties");
 
-            final Map<String, String> properties = new HashMap<String, String>();
+            final Map<String, String> properties = new HashMap<>();
             properties.put("property1", "1 つ目のプロパティ");
             properties.put("property2", "2 つ目のプロパティ");
 
@@ -167,7 +168,7 @@ public class PropertiesRepositoryTest {
 
         @Test
         public void setProperties実行時にプロパティファイルの上書きができること() throws Exception {
-            final Map<String, String> newProps = new HashMap<String, String>();
+            final Map<String, String> newProps = new HashMap<>();
             newProps.put("update", "更新テスト");
 
             final ContentsAttribute attr = new ContentsAttribute();
@@ -187,7 +188,7 @@ public class PropertiesRepositoryTest {
 
         @Test
         public void 文字エンコーディングを指定してプロパティの読み書きができること() throws Exception {
-            final Map<String, String> newProps = new HashMap<String, String>();
+            final Map<String, String> newProps = new HashMap<>();
             newProps.put("encoding", "文字コードテスト");
 
             final ContentsAttribute attr = new ContentsAttribute();
