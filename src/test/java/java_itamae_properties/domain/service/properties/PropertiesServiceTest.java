@@ -1,7 +1,8 @@
 package java_itamae_properties.domain.service.properties;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,8 +14,6 @@ import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
 import java_itamae_contents.domain.model.ContentsAttribute;
-import java_itamae_properties.domain.service.properties.PropertiesService;
-import java_itamae_properties.domain.service.properties.PropertiesServiceImpl;
 
 @RunWith(Enclosed.class)
 public class PropertiesServiceTest {
