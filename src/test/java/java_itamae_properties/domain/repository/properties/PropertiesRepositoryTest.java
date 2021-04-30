@@ -72,7 +72,7 @@ public class PropertiesRepositoryTest {
             attr.setPath("test.properties");
 
             try (final Writer writer = sr.getWriter(attr)) {
-                final boolean status = pr.setProperties(writer, newProps, attr.getPath());
+                final boolean status = pr.updateProperties(writer, newProps, attr.getPath());
                 assertThat(status, is(true));
             }
 
@@ -100,7 +100,7 @@ public class PropertiesRepositoryTest {
             }
 
             try (final Writer writer = sr.getWriter(attr)) {
-                final boolean status = pr.setProperties(writer, newProps, attr.getPath());
+                final boolean status = pr.updateProperties(writer, newProps, attr.getPath());
                 assertThat(status, is(true));
             }
 
@@ -144,7 +144,7 @@ public class PropertiesRepositoryTest {
             properties.put("property2", "2 つ目のプロパティ");
 
             try (Writer writer = sr.getWriter(attr)) {
-                pr.setProperties(writer, properties, attr.getPath());
+                pr.updateProperties(writer, properties, attr.getPath());
             }
         }
 
@@ -175,7 +175,7 @@ public class PropertiesRepositoryTest {
             attr.setPath("test.properties");
 
             try (final Writer writer = sr.getWriter(attr)) {
-                final boolean status = pr.setProperties(writer, newProps, attr.getPath());
+                final boolean status = pr.updateProperties(writer, newProps, attr.getPath());
                 assertThat(status, is(true));
             }
 
@@ -201,7 +201,7 @@ public class PropertiesRepositoryTest {
             }
 
             try (Writer writer = sr.getWriter(attr)) {
-                final boolean status = pr.setProperties(writer, newProps, attr.getPath());
+                final boolean status = pr.updateProperties(writer, newProps, attr.getPath());
                 assertThat(status, is(true));
             }
 
