@@ -11,6 +11,8 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'maven'
+    id 'checkstyle'
+    id 'pmd'
 }
 
 repositories {
@@ -48,6 +50,17 @@ artifacts{
 javadoc{
     options.charSet='UTF-8'
     options.encoding='UTF-8'
+}
+
+checkstyle {
+    toolVersion='8.41.1'
+}
+
+pmd {
+    toolVersion='6.33.0'
+    ignoreFailures=true
+    ruleSetFiles=files("config/pmd/custom-java.xml")
+    ruleSets=[]
 }
 
 tasks.withType(JavaCompile){
