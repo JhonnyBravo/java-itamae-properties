@@ -1,9 +1,18 @@
 package java_itamae_properties.domain.service.properties;
 
+import java_itamae_contents.domain.model.ContentsAttribute;
+
 /**
  * プロパティファイルの読み書きを操作する。
  */
 public interface PropertiesService {
+  /**
+   * 操作対象とする {@link ContentsAttribute} を設定する。
+   *
+   * @param attr 操作対象とするファイルの情報を収めた {@link ContentsAttribute} を指定する。
+   */
+  void init(ContentsAttribute attr);
+
   /**
    * プロパティファイルから値を取得する。
    *
