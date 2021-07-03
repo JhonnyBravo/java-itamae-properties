@@ -10,21 +10,21 @@ import java_itamae_contents.domain.repository.stream.StreamRepository;
 import java_itamae_contents.domain.repository.stream.StreamRepositoryImpl;
 import java_itamae_properties.domain.repository.properties.PropertiesRepository;
 import java_itamae_properties.domain.repository.properties.PropertiesRepositoryImpl;
+import javax.enterprise.inject.New;
+import javax.inject.Inject;
 
 public class PropertiesServiceImpl implements PropertiesService {
-  private final ContentsAttribute attr;
-  private final StreamRepository sr;
-  private final PropertiesRepository pr;
+  @Inject
+  @New(StreamRepositoryImpl.class)
+  private StreamRepository sr;
+  @Inject
+  @New(PropertiesRepositoryImpl.class)
+  private PropertiesRepository pr;
+  private ContentsAttribute attr;
 
-  /**
-   * 初期化処理を実行する。
-   *
-   * @param attr 操作対象とするファイルの情報を納めた {@link ContentsAttribute} を指定する。
-   */
-  public PropertiesServiceImpl(ContentsAttribute attr) {
+  @Override
+  public void init(ContentsAttribute attr) {
     this.attr = attr;
-    sr = new StreamRepositoryImpl();
-    pr = new PropertiesRepositoryImpl();
   }
 
   @Override
