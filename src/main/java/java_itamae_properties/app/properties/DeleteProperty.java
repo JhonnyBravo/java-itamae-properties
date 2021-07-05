@@ -4,6 +4,8 @@ import java.util.function.Function;
 import java_itamae_contents.domain.model.ContentsAttribute;
 import java_itamae_properties.domain.service.properties.PropertiesService;
 import java_itamae_properties.domain.service.properties.PropertiesServiceImpl;
+import javax.enterprise.inject.New;
+import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,15 +13,17 @@ import org.slf4j.LoggerFactory;
  * ファイルからプロパティを削除する。
  */
 public class DeleteProperty implements Function<String, Integer> {
-  private final ContentsAttribute attr;
+  @Inject
+  @New(PropertiesServiceImpl.class)
+  private PropertiesService service;
 
   /**
    * 初期化処理を実行する。
    *
    * @param attr 操作対象とするプロパティーファイルの情報を収めた {@link ContentsAttribute} を指定する。
    */
-  public DeleteProperty(ContentsAttribute attr) {
-    this.attr = attr;
+  public void init(ContentsAttribute attr) {
+    service.init(attr);
   }
 
   /**
@@ -36,7 +40,6 @@ public class DeleteProperty implements Function<String, Integer> {
   @Override
   public Integer apply(String keyName) {
     final Logger logger = LoggerFactory.getLogger(this.getClass());
-    final PropertiesService service = new PropertiesServiceImpl(this.attr);
 
     try {
       final boolean result = service.deleteProperty(keyName);
